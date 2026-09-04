@@ -41,3 +41,15 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## DiscussionBridge sandbox boundary
+
+This repository is the stock starting point for
+`astro.sandbox.discussionbridge.dev`. DiscussionBridge is deliberately not
+installed or configured. Human acceptance begins by installing the public
+adapter into this source repository, configuring it without committing
+secrets, building locally, and deploying the committed candidate through
+Cloudflare Workers.
+
+Use `npm run deploy:dry-run` to validate the Worker package and `npm run
+deploy` to publish the generated `dist` directory.
