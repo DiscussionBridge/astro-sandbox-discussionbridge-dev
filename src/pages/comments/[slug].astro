@@ -1,0 +1,40 @@
+---
+import Discussion from "astro-discussion-bridge/Discussion.astro";
+
+export function getStaticPaths() {
+  const publications = import.meta.glob("../../content/comments/*.md", {
+    eager: true,
+  });
+
+  return Object.entries(publications).map(([path, publication]) => ({
+    params: { slug: path.split("/").at(-1)?.replace(/\.md$/, "") },
+    props: { publication },
+  }));
+}
+
+const { publication } = Astro.props;
+const { Content, frontmatter } = publication;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body>
+    <main>
+      <Content />
+      <Discussion frontmatter={frontmatter} />
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 72rem;
+    padding: 2rem 1rem 4rem;
+  }
+</style>
