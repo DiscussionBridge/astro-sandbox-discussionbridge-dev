@@ -14,6 +14,9 @@ const title = 'DiscussionBridge V4 — Astro Sandbox';
     <header>
       <nav aria-label="Main navigation">
         <a href="/" aria-current="page">Astro sandbox</a>
+        <a href="/articles/">Articles</a>
+        <a href="/articles/simple-comments/">Simple comments</a>
+        <a href="/articles/full-comments/">Full comments</a>
         <a href="https://sandbox-forum.discussionbridge.dev/">Sandbox forum</a>
       </nav>
     </header>
@@ -22,6 +25,17 @@ const title = 'DiscussionBridge V4 — Astro Sandbox';
       <p>This is a clean native Astro project for the approved V4 installed-workflow checks.</p>
       <p>The V4 adapter is installed with this site's own scoped connection. Its native workflow checks are in progress.</p>
       <p><a href="/articles/">Browse native articles and publications</a></p>
+      <ul>
+        <li><a href="/articles/astro-to-discourse-v4-workflow-check/">Astro-authored article with Interactive discussion</a></li>
+        <li><a href="/articles/simple-comments/">Simple comments — the same topic as native comment cards</a></li>
+        <li><a href="/articles/full-comments/">Full comments — Discourse Core's live comments frame</a></li>
+      </ul>
     </main>
   </body>
 </html>
+<style>
+  :global(body) { margin: 0; font-family: system-ui, sans-serif; line-height: 1.65; }
+  header, main { width: min(76ch, calc(100% - 2rem)); margin-inline: auto; padding-block: 1.25rem; }
+  nav { display: flex; flex-wrap: wrap; gap: .65rem 1.4rem; }
+  h1 { overflow-wrap: anywhere; line-height: 1.25; }
+</style>
