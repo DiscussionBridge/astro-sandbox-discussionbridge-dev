@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import NativeArticle from '../../components/NativeArticle.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('articles')).filter(entry => entry.data.draft !== true && entry.data.published !== false)
+    .map(entry => ({ params: { slug: entry.data.slug ?? entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+---
+<SiteLayout title={entry.data.title} description={entry.data.description}>
+  <NativeArticle entry={entry} />
+</SiteLayout>
+

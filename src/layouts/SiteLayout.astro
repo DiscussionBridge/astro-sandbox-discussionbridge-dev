@@ -1,0 +1,44 @@
+---
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title} | DiscussionBridge V4 Astro sandbox</title>
+    <link rel="canonical" href={Astro.url.href} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="/">Astro sandbox</a>
+        <a href="/articles/">Articles</a>
+        <a href="https://sandbox-forum.discussionbridge.dev/">Sandbox forum</a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer><a href="https://discussionbridge.dev/">DiscussionBridge</a> · V4 sandbox checks</footer>
+  </body>
+</html>
+<style is:global>
+  :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.65; }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  header, main, footer { width: min(76ch, calc(100% - 2rem)); margin-inline: auto; }
+  header { padding-block: 1.25rem; border-bottom: 1px solid #8885; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.65rem 1.4rem; }
+  main { padding-block: 1.5rem 3rem; min-width: 0; }
+  footer { padding-block: 1.25rem 2.5rem; border-top: 1px solid #8885; }
+  h1, h2, h3 { line-height: 1.25; overflow-wrap: anywhere; }
+  a { text-underline-offset: 0.16em; }
+  a:focus-visible, button:focus-visible { outline: 3px solid #2685d7; outline-offset: 3px; }
+  .skip-link { position: absolute; left: 1rem; top: -5rem; background: Canvas; padding: 0.75rem; z-index: 2; }
+  .skip-link:focus { top: 0.5rem; }
+  th, td { padding: 0.5rem 0.75rem; border: 1px solid #8885; text-align: left; }
+  table { border-collapse: collapse; }
+  pre { padding: 1rem; border: 1px solid #8885; border-radius: 0.4rem; }
+</style>
+
